@@ -3,6 +3,9 @@
 - required packages
     - pip install gTTS
     - pip install beautifulsoup4
+- "afplay" command to play audio file is only guaranteed to work for Mac users.
+    - Windows: install, import, and use "playsound" package rather than make a system call
+    - Linux: use the system call but with "mpg123" instead of "afplay"
 - To run via command line:
     - python run.py [link to ESPN game's play-by-play] [current game quarter]
     
