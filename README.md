@@ -1,4 +1,4 @@
-# NBA ESPN Play-By-Play Announcer
+# NBA ESPN Live Play-By-Play Announcer
 
 - required packages
     - pip install gTTS
