@@ -1,39 +1,44 @@
-# to speech conversion
-from gtts import gTTS
-# This module is imported so that we can
-# play the converted audio
-import os, random
+import os
+import pyttsx3
+from random import choice
 
+engine = None
+
+
+def init_tts():
+    """
+    Initializes the pytts engine
+    :return:
+    """
+    global engine
+    engine = pyttsx3.init()
+
+def stop_tts():
+    """
+    Stops the pytts engine
+    :return:
+    """
+    global engine
+    engine.stop()
 
 def read(text):
-    # Language in which you want to convert
-    language = 'en'
+    """
+    Converts text to speech in an mp3 file 
+    using google or pyttsx3.
+    Plays the mp3 file.
+    :param text: The rext to read
+    :return:
+    """
+    global engine
+    engine.say(text)
+    engine.runAndWait()
 
-    # Passing the text and language to the engine,
-    # here we have marked slow=False. Which tells
-    # the module that the converted audio should
-    # have a high speed
-    myobj = gTTS(text=text, lang=language, slow=False)
-    # Saving the converted audio in a mp3 file named
-    # welcome
-    myobj.save("play.mp3")
-    # Playing the converted file
-    os.system("afplay play.mp3")
 
 def playBang():
-    choice = random.choice([1, 2, 3, 4, 5])
-    os.system("afplay ./SoundEffects/Bang{}.m4a".format(choice))
+    os.system("afplay ./SoundEffects/Bang{}.m4a".format(choice([1, 2, 3, 4, 5])))
 
 def playDunk():
-    choice = random.choice([1,2,3,4,5])
-    os.system("afplay ./SoundEffects/Dunk{}.m4a".format(choice))
+    os.system("afplay ./SoundEffects/Dunk{}.m4a".format(choice([1,2,3,4,5])))
 
 def playFreethrow():
-    choice = random.choice([1, 2, 3])
-    os.system("afplay ./SoundEffects/Freethrow{}.m4a".format(choice))
-
-
-
-
-
-
+    os.system("afplay ./SoundEffects/Freethrow{}.m4a".format(choice([1, 2, 3])))

@@ -1,5 +1,9 @@
 from bs4 import BeautifulSoup
 import requests, TTS, time, sys
+from TTS import *
+
+# test game url hawks v bucks https://www.espn.com/nba/playbyplay/_/gameId/401337344
+
 
 headers = {'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'}
 
@@ -96,17 +100,17 @@ def start_and_read(last_time, score_table, name_list):
         comparison = compare_times(last_time, time)
         if comparison == 1:
             # print(time, desc, score)
-            TTS.read("{} at {}.".format(get_team_name(name_list, team_logo), time))
-            # TTS.read(time)
+            read("{} at {}.".format(get_team_name(name_list, team_logo), time))
+            # read(time)
             if "three" in desc and "makes" in desc:
-                TTS.playBang()
+                playBang()
             elif "dunk" in desc and "makes" in desc:
-                TTS.playDunk()
+                playDunk()
             elif "makes free throw" in desc:
-                TTS.playFreethrow()
-            TTS.read(desc)
+                playFreethrow()
+            read(desc)
             if ("makes" in desc):
-                TTS.read(score)
+                read(score)
         elif comparison == -2:
             return -1
     return 0
@@ -133,11 +137,13 @@ def main():
     if len(sys.argv) != 3:
         print("Usage: run.py <espn play by play url> <quarter #>")
     else:
+        init_tts()
         url = sys.argv[1]
         quarter_num = int(sys.argv[2])
         name_list = get_team_names(url)
         for i in range(quarter_num, 5):
             new_quarter(url, name_list)
+        stop_tts()
 
 if __name__ == '__main__':
     main()
