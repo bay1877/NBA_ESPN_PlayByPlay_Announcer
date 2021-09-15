@@ -38,7 +38,7 @@
   <h3 align="center">NBA ESPN Live Play-By-Play Announcer</h3>
 
   <p align="center">
-    Announces play by play for a live NBA game using ESPN's Box Score Data
+    Announces gameplay for a live NBA game using ESPN's Play-by-Play Data
     <br />
     <a href="https://github.com/bay1877/NBA_ESPN_PlayByPlay_Announcer"><strong>Explore the docs »</strong></a>
     <br />
