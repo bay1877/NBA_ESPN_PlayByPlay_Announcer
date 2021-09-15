@@ -124,7 +124,7 @@ This project assumes you have python installed.
    ```
 
 ### MP3 Players
-Different operating systems use different command line mp3/audio players. The code currently supports MacOS.
+Different operating systems use different command line mp3/audio players. *TTS.py* currently supports MacOS; change `os.system("afplay *")` calls to match your OS. 
 
 ##### Mac OS
 Use `afplay`.
