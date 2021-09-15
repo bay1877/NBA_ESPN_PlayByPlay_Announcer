@@ -149,9 +149,13 @@ https://www.espn.com/nba/playbyplay/_/gameId/n
 
 Also note the current quarter of the game.
 
-With the link and the current quarter, run the script with the below.
+With the link and the current quarter, run the script with the below. Make sure to source the venv before running the script, and deactivate it when you are finished.
 ```
+source venv/bin/activate
+...
 python run.py <espn play by play url> <quarter #>
+...
+deactivate
 ```
 
 <!-- ROADMAP -->
